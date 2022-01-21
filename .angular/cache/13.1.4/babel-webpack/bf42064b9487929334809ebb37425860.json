@@ -1,0 +1,1 @@
+{"ast":null,"code":"export let Config = /*#__PURE__*/(() => {\n  class Config {}\n\n  Config.config = {\n    theme: 'vertical',\n    themeType: 'default' // default, dark, light\n\n  };\n  return Config;\n})();","map":null,"metadata":{},"sourceType":"module"}

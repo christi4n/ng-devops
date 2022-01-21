@@ -1,0 +1,15 @@
+<div id="parentDiv" class="main-content" scrollSpy [spiedTags]="['SECTION']" (sectionChange)="onSectionChange($event)">
+  <section id="home" class="home d-flex align-items-center" [ngClass]="{'light': themeConfig.themeType === 'light'}">
+    <app-home class="w-100" [themeType]="themeConfig.themeType"></app-home>
+  </section>
+  <section id="about">
+    <app-about></app-about>
+  </section>
+  <section id="experience">
+    <app-experience></app-experience>
+  </section>
+  <section id="blog">
+    <app-blog></app-blog>
+  </section>
+  <div class="spacer-96"></div>
+</div>

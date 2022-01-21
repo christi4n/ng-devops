@@ -1,0 +1,35 @@
+<div class="container">
+
+  <!-- intro -->
+  <div class="intro">
+    <!-- avatar image -->
+    <img src="assets/images/christian-2021-200x.png" alt="Christian BELLET" class="mb-4" />
+
+    <!-- info -->
+    <h1 class="mb-2 mt-0">Christian BELLET</h1>
+    <span>I'm 
+      <span class="text-rotating morphext">
+        <span *ngIf="bounce === 1"><span @bounce>an Azure Cloud Consultant</span></span>
+        <span *ngIf="bounce === 2"><span @bounce>a DevOps Engineer</span></span>
+      </span>
+    </span>
+
+    <!-- social icons -->
+    <ul class="social-icons light list-inline mb-0 mt-4">
+      <li class="list-inline-item"><a href="https://www.linkedin.com/in/d3vops/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a></li>
+      <li class="list-inline-item"><a href="https://twitter.com/_christianb_" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a></li>
+      <li class="list-inline-item"><a href="https://github.com/christi4n" target="_blank" rel="noopener"><i class="fab fa-github-square"></i></a></li>
+    </ul>
+
+  </div>
+
+  <!-- scroll down mouse wheel -->
+  <div class="scroll-down" [ngClass]="{'light': themeType === 'light'}">
+    <a href="javascript:" class="mouse-wrapper" (click)="scrollTo('about')">
+      <span>Scroll Down</span>
+      <span class="mouse">
+        <span class="wheel"></span>
+      </span>
+    </a>
+  </div>
+</div>

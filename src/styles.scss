@@ -1,0 +1,190 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i&display=swap&subset=cyrillic');
+$fa-font-path: "../webfonts";
+
+@import "~bootstrap/scss/bootstrap";
+@import "~simple-line-icons/scss/simple-line-icons";
+
+@import "~ngx-lightbox/lightbox.css";
+
+@import "sass/all.min.css";
+
+@import "sass/mixins";
+@import "sass/base";
+@import "sass/header";
+@import "sass/main";
+@import "sass/dark";
+@import "sass/buttons";
+@import "sass/elements";
+@import "sass/slick";
+@import "sass/responsive";
+
+.main-content {
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.spacer-96 {
+  height: 96px;
+}
+
+.spacer-70 {
+  height: 70px;
+}
+
+.spacer-60 {
+  height: 60px;
+}
+
+.spacer-30 {
+  height: 30px;
+}
+
+.spacer-20 {
+  height: 20px;
+}
+
+.bg-blue {
+  background-color: #6C6CE5;
+}
+
+.bg-yellow {
+  background-color: #F9D74C;
+}
+
+.bg-pink {
+  background-color: #F97B8B;
+}
+
+.modal-dialog.work-modal {
+  max-width: 650px;
+  .modal-content {
+    border-radius: 25px;
+    .white-popup {
+      margin: 0 auto;
+    }
+  }
+}
+
+.ng-image-slider .ng-image-slider-container .main .main-inner .img-div img.ratio, .ng-image-slider .ng-image-slider-container .main .main-inner .img-div video.ratio {
+  max-height: none !important;
+}
+
+ng-image-slider {
+  display: block;
+}
+
+.ng-image-slider {
+  display: block !important;
+  position: relative !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.ng-image-slider-container {
+  display: block;
+}
+
+.ng-image-slider .ng-image-slider-container .main {
+  overflow: hidden;
+  position: relative !important;
+  height: auto !important;
+  width: 100%;
+}
+
+.ng-image-slider .ng-image-slider-container .main .main-inner {
+  width: 100% !important
+}
+
+.img-div image-popup {
+  width: 100% !important;
+}
+
+  .ng-image-slider .ng-image-slider-container .main .main-inner .img-div {
+    width: 100% !important;
+    height: 100%;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    position: relative;
+    border-radius: 5px;
+    display: inline-block;
+    box-shadow: inset 0 0 1px rgb(0 0 0 / 24%), 0 0 2px rgb(0 0 0 / 12%);
+  }
+
+/*  custom-img {
+    display: block;
+  }*/
+
+  .ng-image-slider .ng-image-slider-container .main .main-inner .img-div img, .ng-image-slider .ng-image-slider-container .main .main-inner .img-div video {
+    position: relative !important;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    right: 0;
+    border-radius: 5px;
+  }
+
+
+.ng-image-fullscreen-view .lightbox-wrapper {
+  width: 900px  !important;
+  height: 506px !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%);
+  max-width: 90%;
+}
+
+.ng-image-fullscreen-view .lightbox-wrapper .lightbox-div .lightbox-image-main .lightbox-image {
+  width: 100% !important;
+}
+
+.audio-modal {
+  .modal-content {
+    background: transparent;
+    border: none;
+
+    iframe {
+      width: 100%;
+      height: 506px;
+    }
+  }
+}
+
+.landing {
+  .home {
+    height: auto;
+    min-height: auto;
+    padding: 200px 0;
+  }
+
+}
+
+
+@media only screen and (max-width : 991.5px) {
+  .main-content {
+    height: calc(100vh - 54px);
+    overflow-y: scroll;
+  }
+
+  .ng-image-fullscreen-view .lightbox-wrapper {
+    width: 600px !important;
+    height: 335px !important;
+  }
+  .audio-modal {
+    iframe {
+      height: 335px;
+    }
+  }
+
+  .landing {
+    .home {
+      height: auto;
+      min-height: auto;
+      padding: 100px 0;
+    }
+  }
+}

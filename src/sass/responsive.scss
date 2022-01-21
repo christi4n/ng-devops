@@ -1,0 +1,235 @@
+/*=================================================================*/
+/*                      RESPONSIVE SETTINGS
+/*=================================================================*/
+@media
+only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min--moz-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5){
+
+	html,
+	body{
+		width:100%;
+		overflow-x:hidden;
+	}
+
+}
+
+@media (min-width: 1200px) {
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	.price-item {
+		padding: 40px 30px;
+	}
+}
+
+@media only screen and (max-width: 991px) {
+	header.desktop-header-1 {
+		-webkit-transform: translateX(-290px);
+		-moz-transform: translateX(-290px);
+		-ms-transform: translateX(-290px);
+		-o-transform: translateX(-290px);
+		transform: translateX(-290px);
+	}
+	header.mobile-header-1 {
+		display: block;
+	}
+	main.content {
+		margin-left: 0;
+	}
+	header.desktop-header-2 {
+		-webkit-transform: translateX(-110px);
+		-moz-transform: translateX(-110px);
+		-ms-transform: translateX(-110px);
+		-o-transform: translateX(-110px);
+		transform: translateX(-110px);
+	}
+	header.mobile-header-2 {
+		display: block;
+	}
+	main.content-2 {
+		margin-left: 0;
+	}
+	.desktop-header-3 .nav-link {
+		padding: 7px 0;
+	}
+}
+
+@media only screen and  (min-width: 991px) {
+
+}
+
+@media only screen and (max-width: 768px) {
+	section.home {
+		padding: 300px 0;
+	}
+	.portfolio-filter {
+		display: none;
+	}
+	.portfolio-item, .blog-item {
+		max-width: 360px;
+		margin: auto;
+	}
+	.blog-wrapper {
+		margin: -20px 0;
+		.blog-item {
+			margin-top: 15px;
+			margin-bottom: 15px;
+		}
+	}
+	section.home .cta h1 {
+		font-size: 52px;
+	}
+	section.home .cta p {
+		font-size: 18px;
+	}
+	.pf-filter-wrapper {
+		display: block;
+	}
+	.triangle-top-sm {
+		&:before {
+			content: '';
+			width: 0; 
+			height: 0; 
+			border-left: 10px solid transparent;
+			border-right: 10px solid transparent;
+			border-bottom: 10px solid #FFF;
+			position: absolute;
+			left: 50%;
+			top: -10px;
+			transform: translateX(-7.5px)
+		}
+	}
+	body.dark {
+		.triangle-top-sm {
+			&:before {
+				border-bottom-color: #302f4e;
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.container {
+		max-width: 920px;
+	}
+	.triangle-left-md {
+		&:before {
+			content: "";
+			width: 0;
+			height: 0;
+			border-top: 10px solid transparent;
+			border-bottom: 10px solid transparent;
+			border-right: 15px solid #FFF;
+			position: absolute;
+			left: 0;
+			top: 20%;
+		}
+	}
+	body.dark {
+		.triangle-left-md {
+			&:before {
+				border-right-color: #302f4e;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 576px) {
+	.portfolio-info {
+		li {
+			display: block;
+			padding: 5px 0;
+		}
+	}
+	.parallax {
+    .p1 {
+      left: 10% !important;
+      top: 10% !important;
+    }
+    .p2 {
+      left: 25% !important;
+      top: 30% !important;
+    }
+    .p3 {
+      left: 16% !important;
+      top: 65% !important;
+    }
+    .p4 {
+      left: 10% !important;
+      top: 80% !important;
+    }
+    .p5 {
+      left: 45% !important;
+      top: 10% !important;
+    }
+    .p6 {
+      left: 40% !important;
+      top: 85% !important;
+    }
+    .p7 {
+      top: 20% !important;
+      left: 70% !important;
+    }
+    .p8 {
+      left: 70% !important;
+      top: 80% !important;
+    }
+    .p9 {
+      left: 90% !important;
+      top: 10% !important;
+    }
+    .p10 {
+      left: 80% !important;
+      top: 45% !important;
+    }
+    .p11 {
+      left: 90% !important;
+      top: 90% !important;
+    }
+	}
+}
+
+@media only screen and (max-width: 360px) {
+
+}
+
+@media only screen and (max-width: 380px) {
+	.blog-page-section .blog-pagination ul li {
+		height: 40px;
+		width: 40px;
+		line-height: 40px;
+		margin: 0 5px;
+	}
+}
+
+@media (min-width: 1200px) {
+	.container {
+		max-width: 920px;
+	}
+}
+
+@media (min-width: 1366px) {
+	.container {
+		max-width: 1080px;
+	}
+}
+
+@media (min-width: 1600px) {
+
+}
+
+// height
+@media only screen and (max-height: 500px) {
+	.scroll-down {
+		display: none;
+	}
+}
+
+@media only screen and (max-height: 667px) {
+	header.desktop-header-2 .footer {
+		margin-top: 100px;
+	}
+}
