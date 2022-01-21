@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 
-import { ScrollSpyService } from '../components/scroll-spy/scroll-spy.service';
 import { Config } from '../app-config';
+import { ScrollSpyService } from '../components/scroll-spy/scroll-spy.service';
 
 @Component({
   selector: 'app-view',
@@ -13,11 +12,10 @@ export class ViewComponent implements OnInit {
   public currentSection;
   public themeConfig: any;
 
-  constructor(public scrollSpy: ScrollSpyService, private activatedRoute: ActivatedRoute ) {
+  constructor(public scrollSpy: ScrollSpyService) {
     this.themeConfig = Config.config;
 
     console.log(this.themeConfig);
-
   }
 
   ngOnInit(): void {}
@@ -26,5 +24,4 @@ export class ViewComponent implements OnInit {
     this.currentSection = sectionId;
     this.scrollSpy.nextCount(sectionId);
   }
-
 }

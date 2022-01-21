@@ -1,4 +1,11 @@
-import { Directive, Injectable, Input, EventEmitter, Output, ElementRef, HostListener } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  EventEmitter,
+  HostListener,
+  Input,
+  Output
+} from '@angular/core';
 
 @Directive({
   selector: '[scrollSpy]'
@@ -18,8 +25,8 @@ export class ScrollSpyDirective {
     const parentOffset = event.target.offsetTop;
     for (let i = 0; i < children.length; i++) {
       const element = children[i];
-      if (this.spiedTags.some(spiedTag => spiedTag === element.tagName)) {
-        if ((element.offsetTop - parentOffset) <= scrollTop) {
+      if (this.spiedTags.some((spiedTag) => spiedTag === element.tagName)) {
+        if (element.offsetTop - parentOffset <= scrollTop) {
           currentSection = element.id;
         }
       }
@@ -30,12 +37,16 @@ export class ScrollSpyDirective {
       this.sectionChange.emit(this.currentSection);
     }
 
-    if (currentSection === 'home' && document.querySelector('#return-to-top').hasAttribute('style')) {
+    if (
+      currentSection === 'home' &&
+      document.querySelector('#return-to-top').hasAttribute('style')
+    ) {
       document.querySelector('#return-to-top').removeAttribute('style');
-    } else if (!(document.querySelector('#return-to-top').hasAttribute('style'))) {
-      (document.querySelector('#return-to-top') as HTMLElement).style.display = 'block';
+    } else if (
+      !document.querySelector('#return-to-top').hasAttribute('style')
+    ) {
+      (document.querySelector('#return-to-top') as HTMLElement).style.display =
+        'block';
     }
-
   }
-
 }

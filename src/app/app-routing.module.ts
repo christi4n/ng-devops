@@ -1,6 +1,7 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+
 import { LayoutComponent } from './theme/layout/layout.component';
+import { NgModule } from '@angular/core';
 
 const routes: Routes = [
   {
@@ -14,7 +15,8 @@ const routes: Routes = [
     children: [
       {
         path: 'view',
-        loadChildren: () => import('./view/view.module').then(module => module.ViewModule)
+        loadChildren: () =>
+          import('./view/view.module').then((module) => module.ViewModule)
       }
     ]
   }
@@ -24,4 +26,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -3,6 +3,22 @@
     "ignorePatterns": [
       "projects/**/*"
     ],
+    "env": {
+      "jasmine": true,
+      "browser": true,
+      "es6": true,
+      "node": true
+    },     
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+      "ecmaVersion": 8,
+      "requireConfigFile": false,
+      "ecmaFeatures": {
+        "experimentalObjectRestSpread": true,
+        "impliedStrict": true,
+        "classes": true
+      }
+    },
     "overrides": [
       {
         "files": [
@@ -30,6 +46,7 @@
               "type": "element"
             }
           ],
+          "@angular-eslint/no-empty-lifecycle-method": "off",
           "@angular-eslint/directive-selector": [
             "error",
             {

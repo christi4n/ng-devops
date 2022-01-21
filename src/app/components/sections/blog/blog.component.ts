@@ -6,21 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./blog.component.scss']
 })
 export class BlogComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-  }
-  
   scrollTo(section) {
     const sectionHtml = document.querySelector('#' + section);
     if (sectionHtml !== null) {
       sectionHtml.scrollIntoView({
         behavior: 'smooth',
         block: 'start',
-        inline: 'nearest',
+        inline: 'nearest'
       });
     }
   }
-
 }

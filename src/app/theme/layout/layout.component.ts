@@ -1,10 +1,17 @@
+import {
+  AUTO_STYLE,
+  animate,
+  state,
+  style,
+  transition,
+  trigger
+} from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
+
+import { Config } from '../../app-config';
 import { Location } from '@angular/common';
 import { NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
-import { animate, AUTO_STYLE, state, style, transition, trigger } from '@angular/animations';
-
-import { ScrollSpyService } from "../../components/scroll-spy/scroll-spy.service";
-import { Config } from "../../app-config";
+import { ScrollSpyService } from '../../components/scroll-spy/scroll-spy.service';
 
 @Component({
   selector: 'app-layout',
@@ -13,21 +20,21 @@ import { Config } from "../../app-config";
   providers: [NgbDropdownConfig],
   animations: [
     trigger('collapsedCard', [
-      state('collapsed, void',
+      state(
+        'collapsed, void',
         style({
           overflow: 'hidden',
-          height: '0px',
+          height: '0px'
         })
       ),
-      state('expanded',
+      state(
+        'expanded',
         style({
           overflow: 'hidden',
-          height: AUTO_STYLE,
+          height: AUTO_STYLE
         })
       ),
-      transition('collapsed <=> expanded', [
-        animate('400ms ease-in-out')
-      ])
+      transition('collapsed <=> expanded', [animate('400ms ease-in-out')])
     ])
   ]
 })
@@ -51,7 +58,7 @@ export class LayoutComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.scrollSpy.count.subscribe(c => {
+    this.scrollSpy.count.subscribe((c) => {
       this.currentSection = c;
     });
     document.querySelector('body').classList.add(this.themeConfig.themeType);
@@ -70,8 +77,10 @@ export class LayoutComponent implements OnInit {
         this.contentClass = 'content-3';
         break;
     }
-    this.mobileHeaderClass = this.mobileHeaderClass + ' ' + this.themeConfig.themeType;
-    this.desktopHeaderClass = this.desktopHeaderClass + ' ' + this.themeConfig.themeType;
+    this.mobileHeaderClass =
+      this.mobileHeaderClass + ' ' + this.themeConfig.themeType;
+    this.desktopHeaderClass =
+      this.desktopHeaderClass + ' ' + this.themeConfig.themeType;
 
     if (this.windowWidth > 991) {
       this.collapsedCard = 'false';
@@ -90,11 +99,16 @@ export class LayoutComponent implements OnInit {
     this.currentSection = section;
     const sectionHtml = document.querySelector('#' + section);
     if (sectionHtml !== null) {
-      sectionHtml.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+      sectionHtml.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest'
+      });
     }
   }
 
   collapsedCardToggle() {
-    this.collapsedCard = this.collapsedCard === 'collapsed' ? 'expanded' : 'collapsed';
+    this.collapsedCard =
+      this.collapsedCard === 'collapsed' ? 'expanded' : 'collapsed';
   }
 }
