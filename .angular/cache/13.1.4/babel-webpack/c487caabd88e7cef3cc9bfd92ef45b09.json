@@ -1,1 +1,0 @@
-{"ast":null,"code":"export { ClickOutsideDirective } from './click-outside.directive';\nexport { ClickOutsideModule } from './click-outside.module';","map":null,"metadata":{},"sourceType":"module"}
