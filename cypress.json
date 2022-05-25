@@ -1,5 +1,6 @@
 {
   "projectId": "pxujn2",
+  "video": "false",
   "integrationFolder": "cypress/integration",
   "supportFile": "cypress/support/index.ts",
   "videosFolder": "cypress/videos",
