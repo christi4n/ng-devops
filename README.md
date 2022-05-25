@@ -2,6 +2,7 @@
 
 ## History
 
+2022-05-26 - 1.0.1: remove Protractor and add Cypress.io
 2021-01-18 - 1.0.0: first release
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.4.
