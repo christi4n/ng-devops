@@ -27,7 +27,15 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Run `ng e2e` to execute the end-to-end tests via [Cypress](https://www.cypress.io/).
+You can also run Cypress in open-mode with `ng run ng-devops:cypress-open`
+
+### Run tests in CI
+
+You should register the project in Cypress.io dashboard. Then, proceed by adding a key in your cypress.json and add an environment variable for the command line.
+
+    export CYPRESS_KEY=myverylongkey
+    npx cypress run --record --key $CYPRESS_KEY
 
 ## Further help
 
