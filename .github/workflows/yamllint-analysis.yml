@@ -19,10 +19,10 @@ jobs:
 
       - name: List files in the repository
         run: |
-          ls ${{ github.workspace }}
+          ls -al ${{ github.workspace }}
 
       - name: Lint YAML config
-        run: yamllint ./yamllint/config/*.yml
+        run: yamllint ./.yamllint/config/*.yml
 
       - name: Lint YAML workflows
         run: yamllint ./.github/workflows/*.yml
