@@ -1,0 +1,7 @@
+---
+- repo: local
+  hooks: 
+  - id: yamllint
+    name: yamllint
+    entry: ./node_modules/.bin/yamllint -c ./yamllint/config/conf.yml .
+    types: [file, yaml, yml]

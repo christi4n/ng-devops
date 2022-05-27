@@ -38,6 +38,15 @@ You should register the project in Cypress.io dashboard. Then, proceed by adding
     export CYPRESS_KEY=myverylongkey
     npx cypress run --record --key $CYPRESS_KEY
 
+## YAML linter
+
+You can check manually the syntax of your YAML files:
+
+    ./node_modules/.bin/yamllint -c ./yamllint/config/conf.yml ./.github/workflows/codeql-analysis.yml
+
+- ./yamllint/config/conf.yml: yamllint configuration path
+- ./.github/workflows/codeql-analysis.yml: GitHub workflow for yaml linter
+
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
