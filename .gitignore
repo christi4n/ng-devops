@@ -46,6 +46,9 @@ tslint-to-eslint-config.log
 # Cypress
 cypress/videos/*.mp4
 
+# Vscode
+.vscode
+
 # System Files
 .DS_Store
 Thumbs.db
