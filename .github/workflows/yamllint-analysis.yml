@@ -21,8 +21,8 @@ jobs:
         run: |
           ls -al ${{ github.workspace }}
 
-      - name: Lint YAML config
-        run: yamllint -c ./yamllint/config/conf.yml ./.yamllint/config/*.yml
+      - name: Lint YAML config file
+        run: yamllint -c ./.yamllint/config/conf.yml ./.yamllint/config/*.yml
 
       - name: Lint YAML workflows
-        run: yamllint -c ./yamllint/config/conf.yml ./.github/workflows/*.yml
+        run: yamllint -c ./.yamllint/config/conf.yml ./.github/workflows/*.yml
