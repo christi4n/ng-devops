@@ -3,6 +3,6 @@
   hooks: 
   - id: yamllint
     name: yamllint
-    entry: ./node_modules/.bin/yamllint -c ./yamllint/config/conf.yml .
+    entry: ./node_modules/.bin/yamllint -c ./.yamllint/config/conf.yml ./.github/workflows/*.yml
     language: python
     types: [file, yaml, yml]
