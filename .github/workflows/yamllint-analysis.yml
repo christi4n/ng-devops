@@ -17,6 +17,10 @@ jobs:
       - name: Install yamllint
         run: pip install yamllint
 
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+
       - name: Lint YAML config
         run: yamllint ./yamllint/config/*.yml
 
