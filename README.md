@@ -47,6 +47,8 @@ You can check manually the syntax of your YAML files:
 - ./yamllint/config/conf.yml: yamllint configuration path
 - ./.github/workflows/codeql-analysis.yml: GitHub workflow for yaml linter
 
+![ng-devops app](https://raw.githubusercontent.com/christi4n/ng-devops/master/assets/ng-devops-screen-2.png)
+
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
