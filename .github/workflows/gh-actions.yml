@@ -89,7 +89,7 @@ jobs:
     steps:
       # Build the Docker Image by using the stored variables
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag ${{ secrets.DOCKERHUB_USERNAME }}/ng-devops:${{ secrets.MAJOR }}.${{ secrets.MINOR }}
+        run: docker build . --file Dockerfile --tag ${{ secrets.DOCKERHUB_USERNAME }}/ng-devops:${{ secrets.VERSION_MAJOR_NUM }}.${{ secrets.VERSION_MINOR_NUM }}
 
       # Login to puh the tagged image
       - name: Login to DockerHub
@@ -100,13 +100,13 @@ jobs:
 
       # Push the Docker image to DockerHub
       - name: Push to DockerHub
-        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/ng-devops:${{ secrets.MAJOR }}.${{ secrets.MINOR }}
+        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/ng-devops:${{ secrets.VERSION_MAJOR_NUM }}.${{ secrets.VERSION_MINOR_NUM }}
       
       # Update the secret for the next usage
       - name: Update minor version for next use
         uses: hmanzur/actions-set-secret@v2.0.0
         with:
           name: 'MINOR'
-          value: $(( ${{ secrets.MINOR }} + 1 ))
+          value: $(( ${{ secrets.VERSION_MINOR_NUM }} + 1 ))
           repository: ${{ github.repository }}
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
