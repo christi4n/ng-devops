@@ -87,6 +87,10 @@ jobs:
   DockerBuildAndPush:
     runs-on: ubuntu-latest
     steps:
+      # Ckeckout first the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
       # Build the Docker Image by using the stored variables
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag ${{ secrets.DOCKERHUB_USERNAME }}/ng-devops:${{ secrets.VERSION_MAJOR_NUM }}.${{ secrets.VERSION_MINOR_NUM }}
