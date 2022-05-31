@@ -63,6 +63,22 @@ Use Kustomize to deploy the version you need. You have to create first the kusto
 
 Depending on you kustomization.yml file and the manifest property you would like to override, the manifest.yml file will contain the correct manifest for the new deployment. In our example, we would like to change the image tag we are using for our deployment.
 
+### Create an application with Argo CD
+
+This application's task is to monitor our GitHub repo.
+
+   argocd app create ng-devops --repo https://github.com/christi4n/ng-devops.git --revision kustomize --path ./kustomization --dest-server https://kubernetes.default.svc --dest-namespace ng-devops-ns
+
+![ng-devops app](https://raw.githubusercontent.com/christi4n/ng-devops/master/assets/argo-cd-new-app.png)
+
+The application is out of sync. Then, just sync it.
+
+   argocd app sync ng-devops
+
+Then, get the service ip.
+
+   kubectl get services -n ng-devops-ns
+
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
