@@ -2,6 +2,7 @@
 
 ## History
 
+- 2022-05-31 - 1.1.6: add Kustomize
 - 2022-05-31 - 1.1.5: fix incrementing for Docker image
 - 2022-05-31 - 1.1.4: add kubernetes YAML files
 - 2022-05-27 - 1.1.0: add GitHub actions with yamllint and Codeql
@@ -51,6 +52,16 @@ You can check manually the syntax of your YAML files:
 - ./.github/workflows/codeql-analysis.yml: GitHub workflow for yaml linter
 
 ![ng-devops app](https://raw.githubusercontent.com/christi4n/ng-devops/master/assets/ng-devops-screen-2.png)
+
+## Kustomize
+
+Use Kustomize to deploy the version you need. You have to create first the kustomization.yml file at the same level of your Kubernetes manifests. Then, launch the following command:
+
+   kustomize build ./k8s > ./kustomization/manifests.yml
+
+![ng-devops app](https://raw.githubusercontent.com/christi4n/ng-devops/master/assets/kustomize-k8s-manifest.png)
+
+Depending on you kustomization.yml file and the manifest property you would like to override, the manifest.yml file will contain the correct manifest for the new deployment. In our example, we would like to change the image tag we are using for our deployment.
 
 ## Further help
 
