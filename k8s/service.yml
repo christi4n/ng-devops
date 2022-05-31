@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: ng-devops
+  name: ng-devops
+  namespace: ng-devops-ns
+spec:
+  type: LoadBalancer
+  ports:
+  - nodePort: 30005
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: ng-devops
+  sessionAffinity: None
