@@ -2,6 +2,7 @@
 
 ## History
 
+- 2022-05-31 - 1.1.5: fix incrementing for Docker image
 - 2022-05-31 - 1.1.4: add kubernetes YAML files
 - 2022-05-27 - 1.1.0: add GitHub actions with yamllint and Codeql
 - 2022-05-26 - 1.0.1: remove Protractor and add Cypress.io

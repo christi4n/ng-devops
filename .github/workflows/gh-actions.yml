@@ -110,7 +110,7 @@ jobs:
       - name: Update minor version for next use
         uses: hmanzur/actions-set-secret@v2.0.0
         with:
-          name: 'MINOR'
+          name: 'VERSION_MINOR_NUM'
           value: $(( ${{ secrets.VERSION_MINOR_NUM }} + 1 ))
           repository: ${{ github.repository }}
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
