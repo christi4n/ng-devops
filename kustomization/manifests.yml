@@ -34,7 +34,7 @@ spec:
         app: ng-devops
     spec:
       containers:
-      - image: chrisnt5/ng-devops:1.1.3
+      - image: chrisnt5/ng-devops:1.1.7
         imagePullPolicy: IfNotPresent
         name: ng-devops
         ports:
