@@ -40,7 +40,7 @@ jobs:
         run: yamllint -c ./.yamllint/config/conf.yml ./.yamllint/config/conf.yml
 
       - name: Lint YAML workflows
-        run: yamllint -c ./.yamllint/config/conf.yml ./.github/workflows/*.yml
+        run: yamllint -c ./.yamllint/config/conf.yml ./.github/workflows/*.yaml
   CodeQL-Build:
     # CodeQL runs on ubuntu-latest, windows-latest, and macos-latest
     runs-on: ubuntu-latest
