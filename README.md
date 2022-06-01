@@ -53,6 +53,9 @@ You can check manually the syntax of your YAML files:
 
 ![ng-devops app](https://raw.githubusercontent.com/christi4n/ng-devops/master/assets/ng-devops-screen-2.png)
 
+## Security
+
+You can use Trivy. It is a vulnerability scanner for container images, file systems, git repositories and docker configuration files. Moreover, it is OpenSource.
 ## Kustomize
 
 Use Kustomize to deploy the version you need. You have to create first the kustomization.yml file at the same level of your Kubernetes manifests. Then, launch the following command:
