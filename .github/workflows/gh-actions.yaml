@@ -94,8 +94,7 @@ jobs:
       # Build the Docker Image by using the stored variables
       - name: Build the Docker image
         run: |
-          docker build . --file Dockerfile 
-          --tag ${{ secrets.DOCKERHUB_USERNAME }}/ng-devops:${{ secrets.VERSION_MAJOR_NUM }}.${{ secrets.VERSION_MINOR_NUM }}
+          docker build . --file Dockerfile --tag ${{ secrets.DOCKERHUB_USERNAME }}/ng-devops:${{ secrets.VERSION_MAJOR_NUM }}.${{ secrets.VERSION_MINOR_NUM }}
 
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
