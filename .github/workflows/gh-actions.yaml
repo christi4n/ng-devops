@@ -93,15 +93,17 @@ jobs:
 
       # Build the Docker Image by using the stored variables
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag ${{ secrets.DOCKERHUB_USERNAME }}/ng-devops:${{ secrets.VERSION_MAJOR_NUM }}.${{ secrets.VERSION_MINOR_NUM }}
+        run: |
+          docker build . --file Dockerfile 
+          --tag ${{ secrets.DOCKERHUB_USERNAME }}/ng-devops:${{ secrets.VERSION_MAJOR_NUM }}.${{ secrets.VERSION_MINOR_NUM }}
 
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
           # image reference
-          #image-ref: '${{ secrets.DOCKERHUB_USERNAME }}/ng-devops:${{ secrets.VERSION_MAJOR_NUM }}.${{ secrets.VERSION_MINOR_NUM }}'
+          image-ref: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/ng-devops:${{ secrets.VERSION_MAJOR_NUM }}.${{ secrets.VERSION_MINOR_NUM }}'
           #image-ref: 'docker.io/my-organization/my-app:${{ github.sha }}'
-          image-ref: 'chrisnt5/ng-devops:1.1.7'
           # output format (table, json)
           format: 'table' # optional, default is table
           # exit code when vulnerabilities were found
@@ -121,7 +123,8 @@ jobs:
 
       # Push the Docker image to DockerHub
       - name: Push to DockerHub
-        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/ng-devops:${{ secrets.VERSION_MAJOR_NUM }}.${{ secrets.VERSION_MINOR_NUM }}
+        run: |
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/ng-devops:${{ secrets.VERSION_MAJOR_NUM }}.${{ secrets.VERSION_MINOR_NUM }}
       
       # Update the secret for the next usage
       - name: Update minor version for next use
