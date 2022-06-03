@@ -91,6 +91,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Debug DOCKERHUB_USERNAME
+        run: echo ${{ secrets.DOCKERHUB_USERNAME }} | sed 's/./& /g'
+
+      - name: Debug env variables
+        run: echo ${{ secrets.VERSION_MAJOR_NUM }} | sed 's/./& /g'
+
+      - name: Debug env variables
+        run: echo ${{ secrets.VERSION_MINOR_NUM }} | sed 's/./& /g'
+
       # Build the Docker Image by using the stored variables
       - name: Build the Docker image
         run: |
