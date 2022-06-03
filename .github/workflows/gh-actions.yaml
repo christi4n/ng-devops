@@ -91,26 +91,26 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Debug DOCKERHUB_USERNAME
-        run: echo ${{ secrets.DOCKERHUB_USERNAME }} | sed 's/./& /g'
+      # - name: Debug DOCKERHUB_USERNAME
+      #   run: echo ${{ secrets.DOCKERHUB_USERNAME }} | sed 's/./& /g'
 
-      - name: Debug env variables
-        run: echo ${{ secrets.VERSION_MAJOR_NUM }} | sed 's/./& /g'
+      # - name: Debug VERSION_MAJOR_NUM
+      #   run: echo ${{ secrets.VERSION_MAJOR_NUM }} | sed 's/./& /g'
 
-      - name: Debug env variables
-        run: echo ${{ secrets.VERSION_MINOR_NUM }} | sed 's/./& /g'
+      # - name: Debug VERSION_MINOR_NUM
+      #   run: echo ${{ secrets.VERSION_MINOR_NUM }} | sed 's/./& /g'
 
       # Build the Docker Image by using the stored variables
       - name: Build the Docker image
         run: |
-          docker build . --file Dockerfile --tag ${{ secrets.DOCKERHUB_USERNAME }}/ng-devops:${{ secrets.VERSION_MAJOR_NUM }}.${{ secrets.VERSION_MINOR_NUM }}
+          docker build . --file Dockerfile --tag docker.io/${{ secrets.DOCKERHUB_USERNAME }}/ng-devops:${{ secrets.VERSION_MAJOR_NUM }}.${{ secrets.VERSION_MINOR_NUM }}
 
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
           # image reference
           image-ref: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/ng-devops:${{ secrets.VERSION_MAJOR_NUM }}.${{ secrets.VERSION_MINOR_NUM }}
+            'docker.io/${{ secrets.DOCKERHUB_USERNAME }}/ng-devops:${{ secrets.VERSION_MAJOR_NUM }}.${{ secrets.VERSION_MINOR_NUM }}''
           #image-ref: 'docker.io/my-organization/my-app:${{ github.sha }}'
           # output format (table, json)
           format: 'table' # optional, default is table
@@ -132,7 +132,7 @@ jobs:
       # Push the Docker image to DockerHub
       - name: Push to DockerHub
         run: |
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/ng-devops:${{ secrets.VERSION_MAJOR_NUM }}.${{ secrets.VERSION_MINOR_NUM }}
+          docker push docker.io/${{ secrets.DOCKERHUB_USERNAME }}/ng-devops:${{ secrets.VERSION_MAJOR_NUM }}.${{ secrets.VERSION_MINOR_NUM }}
       
       # Update the secret for the next usage
       - name: Update minor version for next use
