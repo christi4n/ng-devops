@@ -101,7 +101,7 @@ jobs:
         with:
           # image reference
           image-ref: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/ng-devops:${{ secrets.VERSION_MAJOR_NUM }}.${{ secrets.VERSION_MINOR_NUM }}'
+            ${{ secrets.DOCKERHUB_USERNAME }}/ng-devops:${{ secrets.VERSION_MAJOR_NUM }}.${{ secrets.VERSION_MINOR_NUM }}
           #image-ref: 'docker.io/my-organization/my-app:${{ github.sha }}'
           # output format (table, json)
           format: 'table' # optional, default is table
@@ -111,7 +111,7 @@ jobs:
           ignore-unfixed: true
           vuln-type: 'os,library'
           # severities of vulnerabilities to be displayed
-          severity: 'CRITICAL,HIGH' # optional, default is UNKNOWN,LOW,MEDIUM,HIGH,CRITICA
+          severity: 'CRITICAL,HIGH' # optional, default is UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL
 
       # Login to push the tagged image
       - name: Login to DockerHub
