@@ -105,6 +105,18 @@ jobs:
         run: |
           docker build . --file Dockerfile --tag docker.io/${{ secrets.DOCKERHUB_USERNAME }}/ng-devops:${{ secrets.VERSION_MAJOR_NUM }}.${{ secrets.VERSION_MINOR_NUM }}
 
+      # Login to push the tagged image
+      - name: Login to DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+      # Push the Docker image to DockerHub
+      - name: Push to DockerHub
+        run: |
+          docker push docker.io/${{ secrets.DOCKERHUB_USERNAME }}/ng-devops:${{ secrets.VERSION_MAJOR_NUM }}.${{ secrets.VERSION_MINOR_NUM }}
+      
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
@@ -121,18 +133,6 @@ jobs:
           vuln-type: 'os,library'
           # severities of vulnerabilities to be displayed
           severity: 'CRITICAL,HIGH' # optional, default is UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL
-
-      # Login to push the tagged image
-      - name: Login to DockerHub
-        uses: docker/login-action@v2
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_PASSWORD }}
-
-      # Push the Docker image to DockerHub
-      - name: Push to DockerHub
-        run: |
-          docker push docker.io/${{ secrets.DOCKERHUB_USERNAME }}/ng-devops:${{ secrets.VERSION_MAJOR_NUM }}.${{ secrets.VERSION_MINOR_NUM }}
       
       # Update the secret for the next usage
       - name: Update minor version for next use
