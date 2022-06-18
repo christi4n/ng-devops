@@ -103,7 +103,49 @@ jobs:
       # Build the Docker Image by using the stored variables
       - name: Build the Docker image
         run: |
-          docker build . --file Dockerfile --tag docker.io/${{ secrets.DOCKERHUB_USERNAME }}/ng-devops:${{ secrets.VERSION_MAJOR_NUM }}.${{ secrets.VERSION_MINOR_NUM }}
+          docker build . --file Dockerfile --tag ${{ secrets.DOCKERHUB_USERNAME }}/ng-devops:${{ secrets.VERSION_MAJOR_NUM }}.${{ secrets.VERSION_MINOR_NUM }}
+      
+      - name: Run Trivy vulnerability scanner - unknown, low, medium
+        uses: aquasecurity/trivy-action@master
+        with:
+          # image reference
+          image-ref: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/ng-devops:${{ secrets.VERSION_MAJOR_NUM }}.${{ secrets.VERSION_MINOR_NUM }}
+          #image-ref: 'docker.io/my-organization/my-app:${{ github.sha }}'
+          # output format (table, json)
+          format: 'table' # optional, default is table
+          # exit code when vulnerabilities were found
+          exit-code: '0' # optional, default is 0
+          # ignore unfixed vulnerabilities
+          ignore-unfixed: true
+          vuln-type: 'os,library'
+          # severities of vulnerabilities to be displayed
+          severity: 'UNKNOWN,LOW,MEDIUM' # optional, default is UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL
+
+      - name: Run Trivy vulnerability scanner - critical, high
+        uses: aquasecurity/trivy-action@master
+        with:
+          # image reference
+          image-ref: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/ng-devops:${{ secrets.VERSION_MAJOR_NUM }}.${{ secrets.VERSION_MINOR_NUM }}
+          #image-ref: 'docker.io/my-organization/my-app:${{ github.sha }}'
+          # output format (table, json)
+          format: 'table' # optional, default is table
+          # exit code when vulnerabilities were found
+          exit-code: '1' # optional, default is 0
+          # ignore unfixed vulnerabilities
+          ignore-unfixed: true
+          vuln-type: 'os,library'
+          # severities of vulnerabilities to be displayed
+          severity: 'CRITICAL,HIGH' # optional, default is UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL
+      
+      - name: Assign the correct tag to the new image
+        run: |
+          docker tag ${{ secrets.DOCKERHUB_USERNAME }}/ng-devops:${{ secrets.VERSION_MAJOR_NUM }}.${{ secrets.VERSION_MINOR_NUM }} docker.io/${{ secrets.DOCKERHUB_USERNAME }}/php-webdevops:${{ secrets.VERSION_MAJOR_NUM }}.${{ secrets.VERSION_MINOR_NUM }}
+
+      - name: Check image name
+        run: |
+          docker images
 
       # Login to push the tagged image
       - name: Login to DockerHub
@@ -116,23 +158,6 @@ jobs:
       - name: Push to DockerHub
         run: |
           docker push docker.io/${{ secrets.DOCKERHUB_USERNAME }}/ng-devops:${{ secrets.VERSION_MAJOR_NUM }}.${{ secrets.VERSION_MINOR_NUM }}
-      
-      - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@master
-        with:
-          # image reference
-          image-ref: |
-            docker.io/${{ secrets.DOCKERHUB_USERNAME }}/ng-devops:${{ secrets.VERSION_MAJOR_NUM }}.${{ secrets.VERSION_MINOR_NUM }}
-          #image-ref: 'docker.io/my-organization/my-app:${{ github.sha }}'
-          # output format (table, json)
-          format: 'table' # optional, default is table
-          # exit code when vulnerabilities were found
-          exit-code: '1' # optional, default is 0
-          # ignore unfixed vulnerabilities
-          ignore-unfixed: true
-          vuln-type: 'os,library'
-          # severities of vulnerabilities to be displayed
-          severity: 'CRITICAL,HIGH' # optional, default is UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL
       
       # Update the secret for the next usage
       - name: Update minor version for next use
