@@ -122,7 +122,7 @@ jobs:
         with:
           # image reference
           image-ref: |
-            'docker.io/${{ secrets.DOCKERHUB_USERNAME }}/ng-devops:${{ secrets.VERSION_MAJOR_NUM }}.${{ secrets.VERSION_MINOR_NUM }}''
+            'docker.io/${{ secrets.DOCKERHUB_USERNAME }}/ng-devops:${{ secrets.VERSION_MAJOR_NUM }}.${{ secrets.VERSION_MINOR_NUM }}'
           #image-ref: 'docker.io/my-organization/my-app:${{ github.sha }}'
           # output format (table, json)
           format: 'table' # optional, default is table
