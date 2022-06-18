@@ -145,7 +145,7 @@ jobs:
 
       - name: Check image name
         run: |
-          docker images
+          docker images | grep "ng-devops"
 
       # Login to push the tagged image
       - name: Login to DockerHub
