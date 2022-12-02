@@ -2,6 +2,7 @@
 
 ## History
 
+- 2022-12-02 - 1.2.0: mass dependencies update et security fixes
 - 2022-06-19 - 1.1.8: fix workflow
 - 2022-06-01 - 1.1.7: add Trivy security scannerss
 - 2022-05-31 - 1.1.6: add Kustomize
